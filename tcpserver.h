@@ -2,6 +2,8 @@
 #define TCPSERVER_H
 
 #include <QDialog>
+#include <QTcpServer>
+#include <QtNetwork>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class TcpServer; }
@@ -17,5 +19,12 @@ public:
 
 private:
     Ui::TcpServer *ui;
+    QTcpServer *qTcpServer = nullptr;
+    QVector<QString> randomMessages;
+
+    void initServer();
+
+private slots:
+    void sendRandomMessage();
 };
 #endif // TCPSERVER_H
